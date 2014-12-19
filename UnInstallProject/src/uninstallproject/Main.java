@@ -31,8 +31,6 @@ public class Main extends javax.swing.JFrame {
     /** Creates new form Main1 */
     private ImageIcon icon = null;
     private Image image = null;
-    private CardLayout cardLayout;
-    private String path = "C:\\";
 
     public Main() {
         initComponents();
