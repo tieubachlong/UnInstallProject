@@ -210,18 +210,20 @@ public class Main extends javax.swing.JFrame {
             }
             input.close();
             if (sn.equals("64")) {
-                return "HKEY_LOCAL_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\HKT Software";
+                return "HKEY_LOCAL_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\HKT Software 4.0";
             } else {
-                return "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\HKT Software";
+                return "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\HKT Software 4.0";
             }
         } catch (Exception e) {
-            return "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\HKT Software";
+            return "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\HKT Software 4.0";
         }
 
     }
 private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
     try {
-        FileUtils.deleteDir("C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\HktSoft");
+        File f11 = new File(defaultDirectory() + "\\Desktop\\HKT Software 4.0.lnk");
+        f11.delete();
+        FileUtils.deleteDir(defaultDirectory()+"\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\HKT_Software_4.0");
         File file = new File(readData() + "/server/Uninstall.vbs");
 
         String path = file.getPath().replace("%20", " ");
@@ -252,7 +254,7 @@ private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         f1.delete();
         File f = getFile("Database", "setup");
         f.delete();
-        
+
         System.exit(0);
     } catch (Exception e) {
         e.printStackTrace();
@@ -260,7 +262,6 @@ private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
 }//GEN-LAST:event_jButton2ActionPerformed
 
 private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    System.exit(0);
 }//GEN-LAST:event_jButton1ActionPerformed
     private String readData() {
         try {
