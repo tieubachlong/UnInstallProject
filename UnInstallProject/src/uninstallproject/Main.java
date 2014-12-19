@@ -67,7 +67,7 @@ public class Main extends javax.swing.JFrame {
         panelBackgroud1 = new uninstallproject.PanelBackgroud();
         lblSalePerson = new javax.swing.JLabel();
         lblSupport = new javax.swing.JLabel();
-        lblNameCpn = new javax.swing.JLabel();
+        lblNameCpn = new javax.swing.JLabel(); 
         jPanel2 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
