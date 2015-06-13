@@ -21,6 +21,7 @@ import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.net.URL;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -219,9 +220,23 @@ public class Main extends javax.swing.JFrame {
     }
 private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
     try {
-        File f11 = new File(defaultDirectory() + "\\Desktop\\HKT Software 4.0.lnk");
+        File f11 = new File(System.getProperty("user.home") + File.separator + "\\Desktop\\HKT Software 4.0.lnk");
         f11.delete();
-        FileUtils.deleteDir(defaultDirectory()+"\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\HKT_Software_4.0");
+        try {
+             FileUtils.deleteDir(System.getProperty("user.home") + File.separator +"\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\HKT Software 4.0");
+             File f12 = new File(System.getProperty("user.home") + File.separator + "\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\mysql.lnk");
+             f12.delete();
+              File f13 = new File(System.getProperty("user.home") + File.separator + "\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\service.lnk");
+             f13.delete();
+              FileUtils.deleteDir(System.getProperty("user.home") + File.separator +"\\Start Menu\\Programs\\HKT Software 4.0");
+              File f121 = new File(System.getProperty("user.home") + File.separator + "\\Start Menu\\Programs\\Startup\\mysql.lnk");
+             f121.delete();
+              File f131 = new File(System.getProperty("user.home") + File.separator + "\\Start Menu\\Programs\\Startup\\service.lnk");
+             f131.delete();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "a");
+        }
+       
         File file = new File(readData() + "/server/Uninstall.vbs");
 
         String path = file.getPath().replace("%20", " ");
@@ -277,7 +292,7 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
 
     public File getFile(String module, String nameFile) {
         String directory = defaultDirectory() + File.separator
-                + "HKTSoftwareEnterpriseManager" + File.separator + module;
+                + "HKTSoft4.0" + File.separator + module;
         if (!new File(directory).exists()) {
             new File(directory).mkdirs();
         }
@@ -288,7 +303,7 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private String defaultDirectory() {
         String OS = System.getProperty("os.name").toUpperCase();
         if (OS.contains("WIN")) {
-            return System.getProperty("user.home");
+            return "C:";
         } else if (OS.contains("MAC")) {
             return System.getProperty("user.home") + "/Library/Application "
                     + "Support";
