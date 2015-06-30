@@ -226,16 +226,18 @@ private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
              FileUtils.deleteDir(System.getProperty("user.home") + File.separator +"\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\HKT Software 4.0");
              File f12 = new File(System.getProperty("user.home") + File.separator + "\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\mysql.lnk");
              f12.delete();
-              File f13 = new File(System.getProperty("user.home") + File.separator + "\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\service.lnk");
+              File f13 = new File(System.getProperty("user.home") + File.separator + "\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\HKTServer.lnk");
              f13.delete();
               FileUtils.deleteDir(System.getProperty("user.home") + File.separator +"\\Start Menu\\Programs\\HKT Software 4.0");
               File f121 = new File(System.getProperty("user.home") + File.separator + "\\Start Menu\\Programs\\Startup\\mysql.lnk");
              f121.delete();
-              File f131 = new File(System.getProperty("user.home") + File.separator + "\\Start Menu\\Programs\\Startup\\service.lnk");
+              File f131 = new File(System.getProperty("user.home") + File.separator + "\\Start Menu\\Programs\\Startup\\HKTServer.lnk");
              f131.delete();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "a");
         }
+        Runtime.getRuntime().exec("taskkill /F /IM HKTServer.exe");
+	Runtime.getRuntime().exec("taskkill /F /IM HKTSoft.exe");
        
         File file = new File(readData() + "/server/Uninstall.vbs");
 
@@ -275,6 +277,7 @@ private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
 }//GEN-LAST:event_jButton2ActionPerformed
 
 private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    System.exit(0);
 }//GEN-LAST:event_jButton1ActionPerformed
     private String readData() {
         try {
